@@ -32,6 +32,7 @@ describe SQLObject do
       cats = Cat.parse_all(hashes)
       expect(cats.length).to eq(2)
       hashes.each_index do |i|
+        p cats[i]
         expect(cats[i].name).to eq(hashes[i][:name])
         expect(cats[i].owner_id).to eq(hashes[i][:owner_id])
       end

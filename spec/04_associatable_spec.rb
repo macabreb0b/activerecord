@@ -112,9 +112,11 @@ describe "Associatable" do
   describe "#has_many" do
     let(:ned) { Human.find(3) }
     let(:ned_house) { House.find(2) }
-
     it "fetches `cats` from `Human`" do
       expect(ned).to respond_to(:cats)
+      # puts ned.class
+ #      puts ned.class.to_s
+      # puts ned.foreign_key
       cats = ned.cats
 
       expect(cats.length).to eq(2)
@@ -130,6 +132,11 @@ describe "Associatable" do
 
     it "fetches `humans` from `House`" do
       expect(ned_house).to respond_to(:humans)
+
+      # puts ned_house
+#       puts ned_house.class.to_s
+
+      # puts ned_house.foreign_key
       humans = ned_house.humans
 
       expect(humans.length).to eq(1)
